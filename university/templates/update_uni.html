@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update University Information</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .form-container {
+    width: 90%;
+    max-width: 600px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow: hidden;
+    margin: 20px auto;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="file"],
+  form input[type="submit"] {
+    width: calc(100% - 22px);
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  form input[type="text"]:focus,
+  form input[type="number"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+
+  form input[type="submit"] {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2>Update University Data</h2>
+      <label for="university_name">University Name:</label>
+      <input type="text" value="{{uni.uni_name}}" id="university_name" name="university_name" required>
+      
+      <label for="make_year">Make Year:</label>
+      <input type="number" value="{{uni.uni_year}}" id="make_year" name="make_year" min="1800" max="2099" required>
+      
+      <label for="logo">University Logo:</label>
+      <input type="file" id="logo" name="logo" accept="image/*">
+      
+      <input type="submit" class="btn btn-success" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

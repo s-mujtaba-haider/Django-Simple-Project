@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Information Form</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    padding: 10px 0;
+    background-color: #ffffff;
+    border-bottom: 2px solid #4CAF50;
+  }
+
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+  }
+
+  form {
+    margin-bottom: 30px;
+  }
+
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  form input[type="text"],
+  form input[type="number"],
+  form input[type="file"],
+  form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  form input[type="text"]:focus,
+  form input[type="number"]:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+
+  form input[type="submit"] {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  form input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+
+  .search-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .search-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .search-container input[type="text"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .search-container input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+
+  .search-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-container button:hover {
+    background-color: #0056b3;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+  }
+
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+
+  .btn-success {
+    background-color: #28a745;
+  }
+
+  .btn-success:hover {
+    background-color: #218838;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .search-container input[type="text"] {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    form input[type="text"],
+    form input[type="number"],
+    form input[type="file"],
+    form input[type="submit"],
+    .search-container input[type="text"],
+    .search-container button {
+      font-size: 14px;
+      padding: 10px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <br><br><br><br><br><br><br><br>
+    <h1> University Management </h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="university_name">University Name:</label>
+      <input type="text" id="university_name" name="university_name" required>
+
+      <label for="make_year">Make Year:</label>
+      <input type="number" id="make_year" name="make_year" min="1800" max="2099" required>
+
+      <label for="logo">University Logo:</label>
+      <input type="file" id="logo" name="logo" accept="image/*" required>
+
+      <input type="submit" class="btn btn-success" value="Submit">
+    </form>
+
+    <div class="search-container">
+      <label for="search_university">Search University</label>
+      <input type="text" id="search_university" name="search_university" value="{{uni.uni_name}}" required>
+      <button type="button" class="btn btn-primary">Search</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">University Name</th>
+          <th scope="col">Make Year</th>
+          <th scope="col">University Logo</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for x in uni %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ x.uni }}</td>
+          <td>{{ x.uni_year }}</td>
+          <td>
+            <img src="/media/{{ x.uni_logo }}" alt="University Logo" style="height: 100px;">
+          </td>
+          <td>
+            <a href="/delete_Uni/{{ x.id }}" class="btn btn-danger">Delete</a>
+            <a href="/Update_Uni/{{ x.id }}" class="btn btn-success">Update</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

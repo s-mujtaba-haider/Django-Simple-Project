@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Card</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #495057;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h4 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .table th {
+            background-color: #f1f3f5;
+            color: #495057;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tbody tr:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">  
+    <h4>Rank: <span style="color: #007bff;">{{ queryset.first.student.studentreportcard.first.student_rank }}</span></h4>
+    <h4>Total: <span style="color: #28a745;">{{ total_marks.total_marks }}</span></h4>
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for marks in queryset %}
+            <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td><b>{{ marks.subject.subject_name }}</b></td>
+                <td>{{ marks.marks }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>  
+
+</body>
+</html>
